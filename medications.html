@@ -6,104 +6,53 @@
     <title>Medications</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
         /* ### Color Palette ### */
-
-        body {
-            background-color: #F3F9D2; /* Cream */
-        }
-
+        body { background-color: #F3F9D2; /* Cream */ }
+        
         /* Headings */
-        h1, h2, h3, h4, h5, .card-title {
-            color: #3D0B37; /* Dark purple */
-        }
+        h1, h2, h3, h4, h5, .card-title { color: #3D0B37; /* Dark purple */ }
 
         /* Navbar */
-        .navbar-brand-green {
-            background-color: #3D0B37; /* Dark purple */
-        }
-        .navbar-brand-green .nav-link,
-        .navbar-brand-green .navbar-brand {
-            color: #FFFFFF; /* White for contrast */
-        }
-        .navbar-brand-green .nav-link:hover,
-        .navbar-brand-green .navbar-brand:hover {
-            color: #F3F9D2; /* Cream on hover */
-        }
-
-        /* Pharmacy Box */
-        .alert-pharmacy {
-            background-color: #CBEAA6; /* Tea green */
-            border-color: #C0D684; /* Pistachio */
-            color: #3D0B37; /* Dark purple */
-        }
-        .alert-pharmacy .alert-heading {
-            color: #3D0B37; /* Dark purple */
-        }
+        .navbar-brand-green { background-color: #3D0B37; }
+        .navbar-brand-green .nav-link, .navbar-brand-green .navbar-brand { color: #FFFFFF; }
+        .navbar-brand-green .nav-link:hover, .navbar-brand-green .navbar-brand:hover { color: #F3F9D2; }
 
         /* Button Overrides */
-        .btn-primary {
-            background-color: #63264A; /* Violet (LTO) */
-            border-color: #63264A;
-        }
-        .btn-primary:hover {
-            background-color: #3D0B37; /* Dark purple on hover */
-            border-color: #3D0B37;
-        }
-        
-        .btn-dark {
-            background-color: #3D0B37; /* Dark purple */
-            border-color: #3D0B37;
-            color: #FFFFFF;
-        }
-        .btn-dark:hover {
-            background-color: #63264A; /* Violet on hover */
-            border-color: #63264A;
-        }
+        .btn-primary { background-color: #63264A; border-color: #63264A; }
+        .btn-primary:hover { background-color: #3D0B37; border-color: #3D0B37; }
         
         /* Icon Colors */
-        .med-icon-1 {
-            color: #C0D684; /* Pistachio */
-        }
-        .med-icon-2 {
-            color: #CBEAA6; /* Tea green */
-        }
+        .med-icon-1 { color: #C0D684; }
+        .med-icon-2 { color: #CBEAA6; }
 
+        /* Inactive/Muted Styles */
+        .btn-eligible { background-color: #e9ecef; border-color: #dee2e6; color: #6c757d; cursor: not-allowed; }
         
-        /*  "Refill Eligible"button */
-        .btn-eligible {
-            background-color: #e9ecef;
-            border-color: #dee2e6;
-            color: #6c757d;
-            cursor: not-allowed;
-        }
+        .med-card-inactive { background-color: #f8f9fa; color: #6c757d; border: 1px solid #dee2e6; }
+        .med-card-inactive .btn-refill { border-color: #ced4da; color: #6c757d; }
 
-        /* 3-dot menu icon */
-        .btn-menu-dots {
-            font-size: 1.25rem;
-            color: #6c757d;
-            text-decoration: none;
-        }
-        .btn-menu-dots:hover {
-            color: #212529;
-        }
+        /* Menu Dots */
+        .btn-menu-dots { color: #6c757d; font-size: 1.2rem; }
+        .btn-menu-dots:hover { color: #212529; }
 
-        /* Inactive Medication Styles */
-        .med-card-inactive {
-            background-color: #f8f9fa;
-            color: #6c757d;
-            border: 1px solid #dee2e6;
+        /* ### NEW STYLES FOR GRID LAYOUT ### */
+        .card {
+            border-radius: 15px; /* More rounded edges */
+            transition: transform 0.2s;
         }
-
-        /* refill buttons will also look muted */
-        .med-card-inactive .btn-refill {
-            border-color: #ced4da;
-            color: #6c757d;
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift effect on hover */
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
         }
         
+        /* Big Icons for the center of the box */
+        .med-icon-large {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -117,140 +66,115 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-search"></i></a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-search"></i></a></li>
             </ul>
+        </div>
     </nav>
 
-
     <div class="container my-4">
-        <div class="d-grid gap-2 mb-4">
-            <button class="btn btn-success btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#requestModel">
-                <i class="bi bi-plus-circle-fill me-2"></i>Request New Medication
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold m-0">My Prescriptions</h3>
+            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#requestModel">
+                <i class="bi bi-plus-circle-fill me-2"></i>New Request
             </button>
-            <small class="text-muted">this is a placeholder for now</small>
         </div>
 
+        <div id="medicationList" class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
 
-        <div class="card shadow-sm mb-3">
-            <div class="card-body">
-                <div class="row g-3 align-items-center">
-                    
-                    <div class="col-auto text-center" style="width: 80px;">
-                        <i class="bi bi-capsule-pill h1 med-icon-1"></i>
-                        <div class="small">Pill</div>
-                    </div>
-
-                    <div class="col">
-                        <h5 class="card-title mb-0">Cetirizine-pseudoephedrine (120mg)</h5>
-                        <small class="text-muted d-block">Last Refill: 10/15/2025</small>
-                        <small class="text-muted d-block">Refills Left: 2</small>
-                    </div>
-
-                    <div class="col-md-3 d-none d-md-block text-center">
-                        <span class="badge bg-light text-dark border p-2">Allergies</span>
-                    </div>
-
-                    <div class="col-md-3 text-center text-md-end">
-                        <button class="btn btn-primary rounded-pill px-4">Refill Now</button>
-                    </div>
-
-                    <div class="col-auto">
+            <div class="col">
+                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                    <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-three-dots-vertical"></i>
-                            </a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
-                                <li><a class="dropdown-item" href="#">Report an Issue</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card shadow-sm mb-3">
-            <div class="card-body">
-                <div class="row g-3 align-items-center">
                     
-                    <div class="col-auto text-center" style="width: 80px;">
-                        <i class="bi bi-prescription2 h1 med-icon-2"></i>
-                        <div class="small">Liquid</div>
-                    </div>
-
-                    <div class="col">
-                        <h5 class="card-title mb-0">Lisinopril (Oral Liquid)</h5>
-                        <small class="text-muted d-block">Last Refill: 10/28/2025</small>
-                        <small class="text-muted d-block">Refills Left: 1</small>
-                    </div>
-
-                    <div class="col-md-3 d-none d-md-block text-center">
-                        <span class="badge bg-light text-dark border p-2">Blood Pressure</span>
-                    </div>
-
-                    <div class="col-md-3 text-center text-md-end">
-                        <button class="btn rounded-pill px-3 btn-eligible" disabled>
-                            Refill Eligible on 11/28
-                        </button>
-                    </div>
-
-                    <div class="col-auto">
-                        <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-three-dots-vertical"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">View Details</a></li>
-                                <li><a class="dropdown-item" href="#">Report an Issue</a></li>
-                            </ul>
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-capsule-pill med-icon-large med-icon-1"></i>
+                        
+                        <h5 class="card-title fw-bold mb-1">Cetirizine</h5>
+                        <p class="text-muted small mb-3">120mg • 1x Daily</p>
+                        
+                        <span class="badge bg-light text-dark border mb-3">Allergies</span>
+                        
+                        <div class="mt-auto w-100">
+                            <div class="d-flex justify-content-between small text-muted mb-2">
+                                <span>Refills: <strong>2</strong></span>
+                                <span>Due: <strong>Now</strong></span>
+                            </div>
+                            <button class="btn btn-primary w-100 rounded-pill">Refill Now</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="card shadow-sm mb-3 med-card-inactive">
-            <div class="card-body">
-                <div class="row g-3 align-items-center">
-                    <div class="col-auto text-center" style="width: 80px;">
-                        <i class="bi bi-capsule h1"></i>
-                        <div class="small">Pill</div>
-                    </div>
-                    <div class="col">
-                        <h5 class="card-title mb-0">Amoxicillin (500mg)</h5>
-                        <small class="d-block">Completed: 08/20/2025</small>
-                    </div>
-                    <div class="col-md-3 d-none d-md-block text-center">
-                        <span class="badge bg-light text-dark border p-2">Antibiotic</span>
-                    </div>
-                    <div class="col-md-3 text-center text-md-end">
-                        <button class="btn rounded-pill px-4 btn-refill" disabled>No Refills</button>
-                    </div>
-                    <div class="col-auto">
+            <div class="col">
+                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                    <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-three-dots-vertical"></i>
-                            </a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
                             </ul>
                         </div>
                     </div>
+
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-prescription2 med-icon-large med-icon-2"></i>
+                        
+                        <h5 class="card-title fw-bold mb-1">Lisinopril</h5>
+                        <p class="text-muted small mb-3">Oral Liquid</p>
+                        
+                        <span class="badge bg-light text-dark border mb-3">Blood Pressure</span>
+                        
+                        <div class="mt-auto w-100">
+                            <div class="d-flex justify-content-between small text-muted mb-2">
+                                <span>Refills: <strong>1</strong></span>
+                                <span>Due: <strong>11/28</strong></span>
+                            </div>
+                            <button class="btn btn-eligible w-100 rounded-pill" disabled>Wait</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-    </div> <div class="modal fade" id="requestModel" tabindex="-1" aria-labelledby="requestModelLabel" aria-hidden="true">
+
+            <div class="col">
+                <div class="card h-100 med-card-inactive position-relative text-center p-3">
+                    <div class="position-absolute top-0 end-0 p-2">
+                        <div class="dropdown">
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Details</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <i class="bi bi-capsule med-icon-large text-secondary"></i>
+                        
+                        <h5 class="card-title fw-bold mb-1">Amoxicillin</h5>
+                        <p class="text-muted small mb-3">500mg</p>
+                        
+                        <span class="badge bg-light text-secondary border mb-3">Antibiotic</span>
+                        
+                        <div class="mt-auto w-100">
+                            <div class="text-center small text-muted mb-2">
+                                <span>Completed: 08/20/25</span>
+                            </div>
+                            <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm" disabled>Archived</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> </div> <div class="modal fade" id="requestModel" tabindex="-1" aria-labelledby="requestModelLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -264,23 +188,92 @@
                             <input type="text" class="form-control" id="medName" placeholder="e.g., Tylenol" required>
                         </div>
                         <div class="mb-3">
-                            <label for="medDosage" class="form-label">Dosage (if known)</label>
+                            <label for="medDosage" class="form-label">Dosage</label>
                             <input type="text" class="form-control" id="medDosage" placeholder="e.g., 500mg">
                         </div>
                         <div class="mb-3">
                             <label for="medReason" class="form-label">Reason for Request</label>
-                            <textarea class="form-control" id="medReason" rows="3" placeholder="e.g., For headache relief..."></textarea>
+                            <textarea class="form-control" id="medReason" rows="3"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit Request</button>
+                    <button type="button" class="btn btn-primary" id="saveMedBtn">Submit Request</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    document.getElementById('saveMedBtn').addEventListener('click', function() {
+        const medName = document.getElementById('medName').value;
+        const medDosage = document.getElementById('medDosage').value;
+        const medReason = document.getElementById('medReason').value;
+
+        if (medName === "") { alert("Please enter a medication name."); return; }
+
+        const today = new Date().toLocaleDateString();
+
+        // ### UPDATED HTML FOR THE NEW TALL CARD LAYOUT ###
+        const newCardHTML = `
+        <div class="col">
+            <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="position-absolute top-0 end-0 p-2">
+                    <div class="dropdown">
+                        <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-danger" href="#">Cancel Request</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="bi bi-hourglass-split med-icon-large text-warning"></i>
+                    
+                    <h5 class="card-title fw-bold mb-1">${medName}</h5>
+                    <p class="text-muted small mb-3">${medDosage || 'Dosage Pending'}</p>
+                    
+                    <span class="badge bg-warning text-dark border mb-3">Reviewing</span>
+                    
+                    <div class="mt-auto w-100">
+                         <div class="text-center small text-muted mb-2">
+                            <span>Requested: ${today}</span>
+                        </div>
+                        <button class="btn btn-secondary w-100 rounded-pill" disabled>Processing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+
+        const listContainer = document.getElementById('medicationList');
+        if(listContainer) {
+             listContainer.insertAdjacentHTML('afterbegin', newCardHTML);
+        }
+
+        // Close Modal and Reset
+        const modalElement = document.getElementById('requestModel');
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+        modalInstance.hide();
+        document.getElementById('requestForm').reset();
+    });
+
+    // REMOVE FUNCTIONALITY
+    document.getElementById('medicationList').addEventListener('click', function(event) {
+        if (event.target.innerText === 'Remove' || event.target.innerText === 'Cancel Request') {
+            event.preventDefault();
+            // We need to find the "col" to remove, not just the card, 
+            // otherwise the empty column space remains in the grid.
+            const colToDelete = event.target.closest('.col');
+            
+            if (colToDelete && confirm("Are you sure you want to remove this?")) {
+                 colToDelete.remove();
+            }
+        }
+    });
+    </script>
 </body>
 </html>
