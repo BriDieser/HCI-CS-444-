@@ -9,54 +9,55 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        /* ### Color Palette ### */
-        body { background-color: #F3F9D2; /* Cream */ }
+        /* Page Colors */
+        body { background-color: #F3F9D2; } 
         
-        /* Headings */
-        h1, h2, h3, h4, h5, .card-title { color: #3D0B37; /* Dark purple */ }
+        h1, h2, h3, h4, h5, .card-title { color: #3D0B37; }
 
-        /* Navbar */
         .navbar-brand-green { background-color: #3D0B37; }
         .navbar-brand-green .nav-link, .navbar-brand-green .navbar-brand { color: #FFFFFF; }
         .navbar-brand-green .nav-link:hover, .navbar-brand-green .navbar-brand:hover { color: #F3F9D2; }
 
-        /* Button Overrides */
         .btn-primary { background-color: #63264A; border-color: #63264A; }
         .btn-primary:hover { background-color: #3D0B37; border-color: #3D0B37; }
         
-        /* Icon Colors */
         .med-icon-1 { color: #C0D684; }
         .med-icon-2 { color: #CBEAA6; }
 
-        /* Inactive/Muted Styles */
         .btn-eligible { background-color: #e9ecef; border-color: #dee2e6; color: #6c757d; cursor: not-allowed; }
         
         .med-card-inactive { background-color: #f8f9fa; color: #6c757d; border: 1px solid #dee2e6; }
         .med-card-inactive .btn-refill { border-color: #ced4da; color: #6c757d; }
 
-        /* Menu Dots */
         .btn-menu-dots { color: #6c757d; font-size: 1.2rem; }
         .btn-menu-dots:hover { color: #212529; }
 
-        /* ### NEW STYLES FOR GRID LAYOUT ### */
+        /* Grid Styles */
         .card {
-            border-radius: 15px; /* More rounded edges */
+            border-radius: 15px; 
             transition: transform 0.2s;
         }
         .card:hover {
-            transform: translateY(-5px); /* Slight lift effect on hover */
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
         }
         
-        /* Big Icons for the center of the box */
         .med-icon-large {
             font-size: 3.5rem;
             margin-bottom: 10px;
         }
     </style>
+    <style>
+        .card:hover, .card:focus-within {
+            z-indez: 20;
+        }
+        .card {
+            overflow: visible;
+        }
+    </style>
 </head>
 <body>
-
+    /* Navbar */ 
     <nav class="navbar navbar-expand-lg navbar-brand-green px-3">
         <a class="navbar-brand fw-bold" href="#">
             <i class="bi bi-activity me-2"></i>Winona College Care
@@ -327,71 +328,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
-    <script>
-    document.getElementById('saveMedBtn').addEventListener('click', function() {
-        const medName = document.getElementById('medName').value;
-        const medDosage = document.getElementById('medDosage').value;
-        const medReason = document.getElementById('medReason').value;
-
-        if (medName === "") { alert("Please enter a medication name."); return; }
-
-        const today = new Date().toLocaleDateString();
-
-        // ### UPDATED HTML FOR THE NEW TALL CARD LAYOUT ###
-        const newCardHTML = `
-        <div class="col">
-            <div class="card h-100 shadow-sm position-relative text-center p-3">
-                <div class="position-absolute top-0 end-0 p-2">
-                    <div class="dropdown">
-                        <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-danger" href="#">Cancel Request</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card-body d-flex flex-column align-items-center">
-                    <i class="bi bi-hourglass-split med-icon-large text-warning"></i>
-                    
-                    <h5 class="card-title fw-bold mb-1">${medName}</h5>
-                    <p class="text-muted small mb-3">${medDosage || 'Dosage Pending'}</p>
-                    
-                    <span class="badge bg-warning text-dark border mb-3">Reviewing</span>
-                    
-                    <div class="mt-auto w-100">
-                         <div class="text-center small text-muted mb-2">
-                            <span>Requested: ${today}</span>
-                        </div>
-                        <button class="btn btn-secondary w-100 rounded-pill" disabled>Processing</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        `;
-
-        const listContainer = document.getElementById('medicationList');
-        if(listContainer) {
-             listContainer.insertAdjacentHTML('afterbegin', newCardHTML);
-        }
-
-        // Close Modal and Reset
-        const modalElement = document.getElementById('requestModel');
-        const modalInstance = bootstrap.Modal.getInstance(modalElement);
-        modalInstance.hide();
-        document.getElementById('requestForm').reset();
-    });
-
-    // REMOVE FUNCTIONALITY
-    document.getElementById('medicationList').addEventListener('click', function(event) {
-        if (event.target.innerText === 'Remove' || event.target.innerText === 'Cancel Request') {
-            event.preventDefault();
-            const colToDelete = event.target.closest('.col');
-            
-            if (colToDelete && confirm("Are you sure you want to remove this?")) {
-                 colToDelete.remove();
-            }
-        }
-    });
-    </script>
 </body>
 </html>
