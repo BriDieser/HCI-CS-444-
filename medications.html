@@ -46,18 +46,28 @@
             font-size: 3.5rem;
             margin-bottom: 10px;
         }
-    </style>
-    <style>
+
         .card:hover, .card:focus-within {
-            z-indez: 20;
+            z-index: 20;
         }
         .card {
             overflow: visible;
         }
+
+        .top-info {
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            box-shadow: 0 .25rem .5rem rgba(0,0,0,.06);
+        }
+
+        footer.site-footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid rgba(0,0,0,.05);
+        }
     </style>
 </head>
 <body>
-    /* Navbar */ 
     <nav class="navbar navbar-expand-lg navbar-brand-green px-3">
         <a class="navbar-brand fw-bold" href="#">
             <i class="bi bi-activity me-2"></i>Winona College Care
@@ -76,7 +86,20 @@
     </nav>
 
     <div class="container my-4">
-        
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-md-8 top-info text-center">
+                <h5 class="fw-semibold mb-2">Main Pharmacy</h5>
+                <p class="mb-1"><strong>Pharmacy Name:</strong> <span id="pharmacyName">Mayo Clinic NE Clinic</span></p>
+                <p class="mb-1"><strong>Pharmacy Phone:</strong> <span id="pharmacyPhone">(507)-538-8500</span></p>
+
+                <hr class="my-3">
+
+                <h6 class="fw-semibold mb-2">Insurance</h6>
+                <p class="mb-1"><strong>Insurance Provider:</strong> <span id="insuranceProvider">United HealthCare</span></p>
+                <p class="mb-0"><strong>Provider Phone:</strong> <span id="insurancePhone">(855)-698-4223</span></p>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold m-0">My Prescriptions</h3>
             <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#requestModel">
@@ -326,7 +349,21 @@
         </div>
     </div>
 
+    <!-- Footer (added) -->
+    <footer class="site-footer mt-5 py-4">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-6 mb-2 mb-md-0">
+                    <small class="text-muted">&copy; 2025 Winona College Care</small>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-muted">Support: <a href="tel:18001234567" class="text-decoration-none">1-800-123-4567</a> · <a href="#" class="text-decoration-none">Privacy</a></small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
 </html>
