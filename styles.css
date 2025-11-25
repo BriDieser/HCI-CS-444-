@@ -1,0 +1,79 @@
+.advertisement {
+    background-color: #63264a;
+    background-image: linear-gradient(to bottom, #63264a, #264c63);
+}
+
+.list-group-item {
+    transition: 0.3s;
+}
+
+.list-group-item:hover {
+    translate: 10px 0px;
+    border-left: 6px solid white;
+}
+
+.card {
+    transition: 0.3s;
+    box-shadow: 0px 0px 5px rgb(182, 185, 186);
+    border-width: 4px;
+    border-radius: 10px;
+    border-color: transparent;
+}
+
+.card:hover {
+    translate: 0px -10px;
+    box-shadow: 0px 10px 10px rgb(182, 185, 186);
+    border-color: #783b6e;
+}
+
+.card.med-card-inactive:hover {
+    translate: 0px;
+    box-shadow: 0px 0px 5px rgb(182, 185, 186);
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: #fcffe3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.card-title {
+    color: #3D0B37;
+    font-family: "Handlee", cursive;
+}
+
+.wellness-resources {
+    color: #93a957;
+}
+
+.wellness-resource-card {
+    background-color: white;
+}
+
+.wellness-resource-card:hover {
+    background-color: #fffff3;
+}
+
+.btn-primary {
+    background-color: #63264A;
+    border-color: #63264A;
+}
+
+.btn-primary:hover {
+    background-color: #3D0B37;
+    border-color: #3D0B37;
+}
+
+.navbar {
+    background-color: #357765;
+    color: white;
+    box-shadow: 0px 5px 10px rgba(109, 109, 109, 0.461);
+}
+
+footer {
+    background-color: #3D0B37;
+}

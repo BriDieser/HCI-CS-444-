@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Google Fonts, I chose Nunito and Handlee -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
     <style>
         /* Page Colors */
-        body { background-color: #F3F9D2; } 
-        
-        h1, h2, h3, h4, h5, .card-title { color: #3D0B37; }
+        body {
+            background-color: #F3F9D2;
+            font-family: "Nunito", sans-serif;
+        }
 
-        .navbar-brand-green { background-color: #3D0B37; }
-        .navbar-brand-green .nav-link, .navbar-brand-green .navbar-brand { color: #FFFFFF; }
-        .navbar-brand-green .nav-link:hover, .navbar-brand-green .navbar-brand:hover { color: #F3F9D2; }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .card-title {
+            color: #3D0B37;
+            font-family: "Handlee", cursive;
+        }
+
+        .navbar-brand-green {
+            background-color: #3D0B37;
+        }
+
+        .navbar-brand-green .nav-link,
+        .navbar-brand-green .navbar-brand {
+            color: #FFFFFF;
+        }
+
+        .navbar-brand-green .nav-link:hover,
+        .navbar-brand-green .navbar-brand:hover {
+            color: #F3F9D2;
+        }
 
         .home-btn {
             color: #FFFFFF;
@@ -31,56 +59,95 @@
             text-decoration: none;
         }
 
-        .btn-primary { background-color: #63264A; border-color: #63264A; }
-        .btn-primary:hover { background-color: #3D0B37; border-color: #3D0B37; }
-        
-        .med-icon-1 { color: #C0D684; }
-        .med-icon-2 { color: #CBEAA6; }
+        .btn-primary {
+            background-color: #63264A;
+            border-color: #63264A;
+        }
 
-        .btn-eligible { background-color: #e9ecef; border-color: #dee2e6; color: #6c757d; cursor: not-allowed; }
-        
-        .med-card-inactive { background-color: #f8f9fa; color: #6c757d; border: 1px solid #dee2e6; }
-        .med-card-inactive .btn-refill { border-color: #ced4da; color: #6c757d; }
+        .btn-primary:hover {
+            background-color: #3D0B37;
+            border-color: #3D0B37;
+        }
 
-        .btn-menu-dots { color: #6c757d; font-size: 1.2rem; }
-        .btn-menu-dots:hover { color: #212529; }
+        .med-icon-1 {
+            color: #C0D684;
+        }
+
+        .med-icon-2 {
+            color: #CBEAA6;
+        }
+
+        .btn-eligible {
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+            color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .med-card-inactive {
+            background-color: #edefec;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+        }
+
+        .med-card-inactive .btn-refill {
+            border-color: #ced4da;
+            color: #6c757d;
+        }
+
+        .btn-menu-dots {
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .btn-menu-dots:hover {
+            color: #212529;
+        }
 
         /* Grid Styles */
         .card {
-            border-radius: 15px; 
+            border-radius: 15px;
             transition: transform 0.2s;
         }
+
+        /*
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-        }
-        
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        } */
+
         .med-icon-large {
             font-size: 3.5rem;
             margin-bottom: 10px;
         }
 
-        .card:hover, .card:focus-within {
+        .card:hover,
+        .card:focus-within {
             z-index: 20;
         }
+
         .card {
             overflow: visible;
         }
 
         .top-info {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             padding: 1rem 1.25rem;
-            box-shadow: 0 .25rem .5rem rgba(0,0,0,.06);
+            box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .06);
         }
 
         footer.site-footer {
             background-color: #3D0B37;
-            border-top: 1px solid rgba(0,0,0,.05);
+            border-top: 1px solid rgba(0, 0, 0, .05);
         }
     </style>
+
+    <link rel="stylesheet" href="styles.css">
+
 </head>
-<body>
+
+<body class="bg-image" style="background-image: url('images/backgrounds/BackgroundDecal.png'); height: 100vh;">
     <nav class="navbar navbar-expand-lg navbar-brand-green px-3">
         <a class="navbar-brand fw-bold" href="#">
             <i class="bi bi-activity me-2"></i>Winona College Care
@@ -110,7 +177,8 @@
                 <hr class="my-3">
 
                 <h6 class="fw-semibold mb-2">Insurance</h6>
-                <p class="mb-1"><strong>Insurance Provider:</strong> <span id="insuranceProvider">United HealthCare</span></p>
+                <p class="mb-1"><strong>Insurance Provider:</strong> <span id="insuranceProvider">United
+                        HealthCare</span></p>
                 <p class="mb-0"><strong>Provider Phone:</strong> <span id="insurancePhone">(855)-698-4223</span></p>
             </div>
         </div>
@@ -125,13 +193,15 @@
         <div id="medicationList" class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
 
             <div class="col">
-                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="card h-100 position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
-                                <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                                <li><a class="dropdown-item text-danger" href="#"
+                                        onclick="alert('Removed Medication')">Remove</a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,17 +215,19 @@
                                 <span>Refills: <strong>2</strong></span>
                                 <span>Due: <strong>Now</strong></span>
                             </div>
-                            <button class="btn btn-primary w-100 rounded-pill">Refill Now</button>
+                            <button class="btn btn-primary w-100 rounded-pill" onclick="alert('Refilled')">Refill
+                                Now</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="card h-100 position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
                             </ul>
@@ -178,10 +250,11 @@
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="card h-100 position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
                             </ul>
@@ -204,10 +277,11 @@
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="card h-100 position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
                             </ul>
@@ -223,17 +297,19 @@
                                 <span>Refills: <strong>0</strong></span>
                                 <span>Due: <strong>Now</strong></span>
                             </div>
-                            <button class="btn btn-primary w-100 rounded-pill">Request Refill</button>
+                            <button class="btn btn-primary w-100 rounded-pill"
+                                onclick="alert('Requested Refill')">Request Refill</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="card h-100 position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
                             </ul>
@@ -250,17 +326,19 @@
                                 <span>Refills: <strong>1</strong></span>
                                 <span>Due: <strong>Now</strong></span>
                             </div>
-                            <button class="btn btn-primary w-100 rounded-pill">Refill Now</button>
+                            <button class="btn btn-primary w-100 rounded-pill" onclick="alert('Refilled')">Refill
+                                Now</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 shadow-sm position-relative text-center p-3">
+                <div class="card h-100 position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
                             </ul>
@@ -286,10 +364,12 @@
                 <div class="card h-100 med-card-inactive position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">View Details</a></li>
-                                <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                                <li><a class="dropdown-item text-danger" href="#"
+                                        onclick="alert('Removed Medication')">Remove</a></li>
                             </ul>
                         </div>
                     </div>
@@ -302,7 +382,8 @@
                             <div class="text-center small text-muted mb-2">
                                 <span>Expired: 09/15/2025</span>
                             </div>
-                            <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm" disabled>Archived</button>
+                            <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm"
+                                disabled>Archived</button>
                         </div>
                     </div>
                 </div>
@@ -312,10 +393,12 @@
                 <div class="card h-100 med-card-inactive position-relative text-center p-3">
                     <div class="position-absolute top-0 end-0 p-2">
                         <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots-vertical"></i></a>
+                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots-vertical"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Details</a></li>
-                                <li><a class="dropdown-item text-danger" href="#">Remove</a></li>
+                                <li><a class="dropdown-item text-danger" href="#"
+                                        onclick="alert('Removed Medication')">Remove</a></li>
                             </ul>
                         </div>
                     </div>
@@ -328,13 +411,16 @@
                             <div class="text-center small text-muted mb-2">
                                 <span>Completed: 08/20/25</span>
                             </div>
-                            <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm" disabled>Archived</button>
+                            <button class="btn btn-outline-secondary w-100 rounded-pill btn-sm"
+                                disabled>Archived</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div> </div> <div class="modal fade" id="requestModel" tabindex="-1" aria-labelledby="requestModelLabel" aria-hidden="true">
+        </div>
+    </div>
+    <div class="modal fade" id="requestModel" tabindex="-1" aria-labelledby="requestModelLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -359,62 +445,70 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveMedBtn">Submit Request</button>
+                    <button type="button" class="btn btn-primary" id="saveMedBtn"
+                        onclick="alert('Request Submitted')">Submit Request</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row mt-5 mb-5 pb-4">
-        <div class="col-12 text-center"> 
-            <h4 class="fw-bold mb-3" style="color: #3D0B37;">Wellness Resources</h4>
+    <!--Wellness Resources-->
+    <div
+        class="row mt-3 m-4 pb-4 border-top border-bottom border-3 info-subtle pt-4 bg-light bg-opacity-50 bg-gradient wellness-resources">
+        <div class="row text-center">
+            <h4 class="fw-bold col-lg-3 col-md-4 col-6 mx-auto border-bottom border-3 border-dark border-opacity-25" style="color: #7f9939;">Wellness Resources</h4>
+            <p class="col-12 mx-auto mb-3 text-dark">Explore other campus wellness resources available to WSU students!</p>
         </div>
-        
+
         <div class="col-md-4 mb-3">
-            <div class="card h-100 border-0 shadow-sm" style="background-color: rgba(255,255,255,0.6);">
+            <div class="card h-100 border-0 shadow-sm wellness-resource-card">
                 <div class="card-body d-flex align-items-center">
                     <div class="rounded-circle p-3 me-3" style="background-color: #F3F9D2; color: #3D0B37;">
                         <i class="bi bi-heart-pulse-fill fs-4"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1">Mental Health Support</h6>
-                        <p class="small text-muted mb-0">Services are available 24/7 for students.</p>
-                        <a href="#" class="small text-decoration-none stretched-link">Learn more</a>
+                        <h6 class="fw-bold mb-1" style="color: #7f9939;">Mental Health Support</h6>
+                        <p class="small text-muted mb-1">Services are available 24/7 for students</p>
+                        <a href="#" class="small text-decoration-none stretched-link rounded p-1 btn-primary"
+                            onclick="alert('Redirect to Schedule Page')" style="color: white;">Learn more</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4 mb-3">
-            <div class="card h-100 border-0 shadow-sm" style="background-color: rgba(255,255,255,0.6);">
+            <div class="card h-100 border-0 shadow-sm wellness-resource-card">
                 <div class="card-body d-flex align-items-center">
                     <div class="rounded-circle p-3 me-3" style="background-color: #F3F9D2; color: #3D0B37;">
                         <i class="bi bi-calendar-check-fill fs-4"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1">Nutrition Services</h6>
-                        <p class="small text-muted mb-0">Dining Hall Experience, Book with our Dietitian.</p>
-                        <a href="#" class="small text-decoration-none stretched-link">View Schedule</a>
+                        <h6 class="fw-bold mb-1" style="color: #7f9939;">Nutrition Services</h6>
+                        <p class="small text-muted mb-1">Dining Hall Experience, Book with our Dietitian.</p>
+                        <a href="#" class="small text-decoration-none stretched-link rounded p-1 btn-primary"
+                            onclick="alert('Redirect to Schedule Page')" style="color: white;">View Schedule</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4 mb-3">
-            <div class="card h-100 border-0 shadow-sm" style="background-color: rgba(255,255,255,0.6);">
+            <div class="card h-100 border-0 shadow-sm wellness-resource-card">
                 <div class="card-body d-flex align-items-center">
                     <div class="rounded-circle p-3 me-3" style="background-color: #F3F9D2; color: #3D0B37;">
                         <i class="bi bi-telephone-fill fs-4"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1">Campus Rec Center</h6>
-                        <p class="small text-muted mb-0">Lift, Run, Swim. Trainers Available.</p>
-                        <a href="#" class="small text-decoration-none stretched-link">See Options</a>
+                        <h6 class="fw-bold mb-1" style="color: #7f9939;">Campus Rec Center</h6>
+                        <p class="small text-muted mb-1">Lift, Run, Swim - Trainers Available.</p>
+                        <a href="#" class="small text-decoration-none stretched-link rounded p-1 btn-primary"
+                            onclick="alert('Redirect to Schedule Page')" style="color: white;">See Options</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--End of Wellness Resources-->
 
     <footer class="site-footer mt-4 py-3">
         <div class="container text-center">
@@ -423,7 +517,9 @@
                     <small class="text-white">&copy; 2025 Winona College Care</small>
                 </div>
                 <div class="col-md-6">
-                    <small class="text-white">Support: <a href="tel:18001234567" class="text-decoration-none">1-507-538-1234</a> · <a href="#" class="text-decoration-none">Privacy</a></small>
+                    <small class="text-white">Support: <a href="tel:18001234567"
+                            class="text-decoration-none">1-507-538-1234</a> · <a href="#"
+                            class="text-decoration-none">Privacy</a></small>
                 </div>
             </div>
         </div>
@@ -432,5 +528,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-</html>
 
+</html>
