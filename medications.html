@@ -22,6 +22,14 @@
             font-family: "Nunito", sans-serif;
         }
 
+        .pharmacy-info {
+            color: #7d943e;
+        }
+
+        .pharmacy-title {
+            background-color: #7d943e;
+        }
+
         h1,
         h2,
         h3,
@@ -134,7 +142,7 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             padding: 1rem 1.25rem;
-            box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .06);
+            box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.16);
         }
 
         footer.site-footer {
@@ -169,56 +177,42 @@
 
     <div class="container my-4">
         <div class="row justify-content-center mb-4">
-            <div class="col-12 col-md-8 top-info text-center">
-                <h5 class="fw-semibold mb-2">Main Pharmacy</h5>
-                <p class="mb-1"><strong>Pharmacy Name:</strong> <span id="pharmacyName">Mayo Clinic NE Clinic</span></p>
-                <p class="mb-1"><strong>Pharmacy Phone:</strong> <span id="pharmacyPhone">(507)-538-8500</span></p>
-
-                <hr class="my-3">
-
-                <h6 class="fw-semibold mb-2">Insurance</h6>
-                <p class="mb-1"><strong>Insurance Provider:</strong> <span id="insuranceProvider">United
-                        HealthCare</span></p>
-                <p class="mb-0"><strong>Provider Phone:</strong> <span id="insurancePhone">(855)-698-4223</span></p>
+            <div class="col-12 col-lg-7 col-md-11 top-info text-center">
+                <div class="container-fluid pt-2 m-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><span class="pharmacy-title text-light rounded-pill p-1 ps-2 pe-2">Main Pharmacy</span>
+                            </h5>
+                            <p class="mb-1"><strong>Pharmacy Name:</strong> <span id="pharmacyName"
+                                    class="pharmacy-info page-title-border">Mayo Clinic NE Clinic</span></p>
+                            <p class="mb-1"><strong>Pharmacy Phone:</strong> <span id="pharmacyPhone"
+                                    class="pharmacy-info page-title-border">(507)-538-8500</span></p>
+                        </div>
+                        <div class="col-md-6 pt-3 pt-md-0">
+                            <h5><span class="pharmacy-title text-light rounded-pill p-1 ps-2 pe-2">Insurance</span></h5>
+                            <p class="mb-1"><strong>Insurance Provider:</strong> <span id="insuranceProvider"
+                                    class="pharmacy-info page-title-border">United
+                                    HealthCare</span></p>
+                            <p class="mb-0"><strong>Provider Phone:</strong> <span id="insurancePhone"
+                                    class="pharmacy-info page-title-border">(855)-698-4223</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold m-0">My Prescriptions</h3>
-            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#requestModel">
-                <i class="bi bi-plus-circle-fill me-2"></i>New Request
-            </button>
+        <div class="mb-4 text-center text-md-start">
+            <h1 class="fw-bold page-title-border">My Prescriptions</h1>
         </div>
 
         <div id="medicationList" class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
 
-            <div class="col">
-                <div class="card h-100 position-relative text-center p-3">
-                    <div class="position-absolute top-0 end-0 p-2">
-                        <div class="dropdown">
-                            <a class="btn-menu-dots" href="#" data-bs-toggle="dropdown"><i
-                                    class="bi bi-three-dots-vertical"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">View Details</a></li>
-                                <li><a class="dropdown-item text-danger" href="#"
-                                        onclick="alert('Removed Medication')">Remove</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <i class="bi bi-capsule-pill med-icon-large med-icon-1"></i>
-                        <h5 class="card-title fw-bold mb-1">Cetirizine</h5>
-                        <p class="text-muted small mb-3">120mg • 1x Daily</p>
-                        <span class="badge bg-light text-dark border mb-3">Allergies</span>
-                        <div class="mt-auto w-100">
-                            <div class="d-flex justify-content-between small text-muted mb-2">
-                                <span>Refills: <strong>2</strong></span>
-                                <span>Due: <strong>Now</strong></span>
-                            </div>
-                            <button class="btn btn-primary w-100 rounded-pill" onclick="alert('Refilled')">Refill
-                                Now</button>
-                        </div>
-                    </div>
+            <div class="card h-100 text-center p-3 col align-self-center bg-dark bg-opacity-50">
+                <div>
+                    <button class="btn btn-primary w-100 rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#requestModel">
+                        <i class="bi bi-plus-circle-fill me-2"></i>New Request
+                    </button>
+                    <p class="text-light mt-2">Only <span class="text-decoration-underline">minor issue</span> requests can be made online.</p>
                 </div>
             </div>
 
@@ -446,7 +440,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="saveMedBtn"
-                        onclick="alert('Request Submitted')">Submit Request</button>
+                        onclick="alert('Request Submitted - Wait for Processing')">Request Submitted</button>
                 </div>
             </div>
         </div>
@@ -454,10 +448,12 @@
 
     <!--Wellness Resources-->
     <div
-        class="row mt-3 m-4 pb-4 border-top border-bottom border-3 info-subtle pt-4 bg-light bg-opacity-50 bg-gradient wellness-resources">
+        class="row mt-3 m-4 pb-4 border-top border-bottom border-3 border-dark border-opacity-25 info-subtle pt-4 bg-dark bg-opacity-25 bg-gradient wellness-resources">
         <div class="row text-center">
-            <h4 class="fw-bold col-lg-3 col-md-4 col-6 mx-auto border-bottom border-3 border-dark border-opacity-25" style="color: #7f9939;">Wellness Resources</h4>
-            <p class="col-12 mx-auto mb-3 text-dark">Explore other campus wellness resources available to WSU students!</p>
+            <h4 class="col-lg-3 col-md-4 col-6 mx-auto border-bottom border-3 border-dark border-opacity-25 wellness-resources-title rounded-pill pt-1"
+                style="color: #ffffff;">Wellness Resources</h4>
+            <p class="col-12 mx-auto mb-3 text-dark">Explore other campus wellness resources available to WSU students!
+            </p>
         </div>
 
         <div class="col-md-4 mb-3">

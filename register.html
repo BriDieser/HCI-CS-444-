@@ -15,37 +15,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="bg-image" style="background-image: url('images/backgrounds/BackgroundDecal.png'); height: 100vh;">
+<body>
 
     <main class="container-fluid">
         <section class="row text-center">
-            <aside class="col-md-6 text-light p-5 advertisement">
+            <aside class="col-md-6 text-light p-5 advertisement bg-image"
+                style="background-image: url('images/backgrounds/InfoDecal.png'); height: 100vh;">
                 <div class="container">
                     <div class="col-12">
-                        <h1
-                            class="text-light border-start border-end border-3 border-warning bg-dark bg-opacity-25 p-2">
-                            Winona College Care</h1>
+                        <h1 class="mb-4">
+                            <span
+                                class="text-light border-start border-end border-3 border-warning p-2 ps-4 pe-4">Winona
+                                College
+                                Care</span>
+                        </h1>
                         <p>A health portal dedicated to providing you <span class="text-warning">access, updates, and
                                 information</span> about your
                             medical needs.
                         </p>
                     </div>
                     <div class="col-7 mx-auto">
-                        <div id="carouselExample" class="carousel slide">
+                        <div id="carouselImages" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="images/photos/medication-photo.jpg" class="d-block w-100" alt="...">
+                                    <img src="images/photos/medication-photo.jpg" class="d-block w-100"
+                                        alt="An opened bottle of medications">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="images/photos/calendar-photo.jpg" class="d-block w-100" alt="...">
+                                    <img src="images/photos/calendar-photo.jpg" class="d-block w-100"
+                                        alt="A calendar with a circled date and pen">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImages"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselImages"
                                 data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
@@ -98,8 +104,8 @@
                 </div>
             </aside>
             <article class="col p-5">
-                <h1 class="display-4 mt-5">Register</h1>
-                <form class="mb-3 bg-light p-5 m-3 text-start shadow rounded" action="index.html">
+                <h1 class="display-4 mt-md-5 page-title">Register</h1>
+                <form class="mb-3 bg-light p-5 m-3 text-start shadow-lg rounded bg-image" action="index.html">
                     <div class="m-3">
                         <label for="emailInput" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="emailInput" placeholder="Enter your email"
@@ -131,6 +137,7 @@
         </section>
     </main>
 
+    <!--https://getbootstrap.com/docs/5.3/examples/footers/ used for footer-->
     <footer class="site-footer py-3">
         <div class="container text-center">
             <div class="row">

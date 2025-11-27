@@ -1,6 +1,5 @@
 .advertisement {
-    background-color: #63264a;
-    background-image: linear-gradient(to bottom, #63264a, #264c63);
+    background-color: #772a57;
 }
 
 .list-group-item {
@@ -14,7 +13,7 @@
 
 .card {
     transition: 0.3s;
-    box-shadow: 0px 0px 5px rgb(182, 185, 186);
+    box-shadow: 0px 0px 5px rgb(160, 166, 168);
     border-width: 4px;
     border-radius: 10px;
     border-color: transparent;
@@ -50,12 +49,21 @@ h5,
     color: #93a957;
 }
 
+.wellness-resources-title {
+    background-color: #93a957;
+}
+
 .wellness-resource-card {
     background-color: white;
 }
 
+.wellness-resource-card-dark {
+    background-color: #772a57;
+    border-bottom: 6px solid #3D0B37;
+}
+
 .wellness-resource-card:hover {
-    background-color: #fffff3;
+    background-color: #e6ffd8;
 }
 
 .btn-primary {
@@ -76,4 +84,48 @@ h5,
 
 footer {
     background-color: #3D0B37;
+}
+
+.page-title {
+    text-decoration-line: underline;
+    text-decoration-color: #93a957;
+    text-underline-offset: 5px;
+}
+
+.page-title-border {
+    border-bottom-style: solid;
+    border-color: #7d943e;
+}
+
+.page-description {
+    color: #7d943e;
+    font-weight: bold;
+}
+
+.notification-urgent {
+    background-color: rgb(225, 91, 91);
+}
+
+.notification-urgent:hover {
+    background-color: rgb(216, 60, 60);
+}
+
+.notification-important {
+    background-color: rgb(250, 166, 87);
+}
+
+.notification-important:hover {
+    background-color: rgb(246, 149, 58);
+}
+
+.notification-relaxed {
+    background-color: rgb(199, 226, 102);
+}
+
+.notification-relaxed:hover {
+    background-color: rgb(190, 222, 76);
+}
+
+.notification-panel {
+    background: rgba(0, 0, 0, 0.08);
 }
