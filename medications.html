@@ -144,38 +144,54 @@
             padding: 1rem 1.25rem;
             box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.16);
         }
-
-        footer.site-footer {
-            background-color: #3D0B37;
-            border-top: 1px solid rgba(0, 0, 0, .05);
-        }
     </style>
 
     <link rel="stylesheet" href="styles.css">
 
 </head>
 
-<body class="bg-image" style="background-image: url('images/backgrounds/BackgroundDecal.png'); height: 100vh;">
-    <nav class="navbar navbar-expand-lg navbar-brand-green px-3">
-        <a class="navbar-brand fw-bold" href="#">
-            <i class="bi bi-activity me-2"></i>Winona College Care
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Billing</a></a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Messaging</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Appointments</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
-                <a href="index.html" class="home-btn"><i class="bi bi-house-fill" style="font-size: 1.5rem;"></i></a>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-search"></i></a></li>
-            </ul>
+<body class="bg-image container-fluid"
+    style="background-image: url('images/backgrounds/BackgroundDecal.png'); height: 100vh;">
+    <a href="#main" class="skip">Skip to main content</a>
+    <nav class="navbar navbar-expand-sm sticky-top m-3 rounded-4 border-bottom border-dark border-4">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="#">WCC</a>
+            <button class="navbar-toggler navbar-profile" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse me-3 border-start border-3" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#"><span
+                                class="navbar-profile border border-2 rounded-3 p-2">Profile</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link navbar-text" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-text" href="login.html">Exit</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item navbar-dropdown-text" href="medications.html">Medications</a>
+                            </li>
+                            <li><a class="dropdown-item navbar-dropdown-text" href="Scheduling.html">Scheduling</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="container my-4">
+    <div class="container my-4" id="main">
         <div class="row justify-content-center mb-4">
             <div class="col-12 col-lg-7 col-md-11 top-info text-center">
                 <div class="container-fluid pt-2 m-3">
@@ -209,10 +225,12 @@
 
             <div class="card h-100 text-center p-3 col align-self-center bg-dark bg-opacity-50">
                 <div>
-                    <button class="btn btn-primary w-100 rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#requestModel">
+                    <button class="btn btn-primary w-100 rounded-pill" type="button" data-bs-toggle="modal"
+                        data-bs-target="#requestModel">
                         <i class="bi bi-plus-circle-fill me-2"></i>New Request
                     </button>
-                    <p class="text-light mt-2">Only <span class="text-decoration-underline">minor issue</span> requests can be made online.</p>
+                    <p class="text-light mt-2">Only <span class="text-decoration-underline">minor issue</span> requests
+                        can be made online.</p>
                 </div>
             </div>
 
@@ -427,9 +445,20 @@
                             <label for="medName" class="form-label">Medication Name</label>
                             <input type="text" class="form-control" id="medName" placeholder="e.g., Tylenol" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="medDosage" class="form-label">Dosage</label>
-                            <input type="text" class="form-control" id="medDosage" placeholder="e.g., 500mg">
+                        <div class="mb-3 container-fluid">
+                            <div class="row">
+                                <div class="col"><label for="medDosageAmount" class="form-label">Dosage <span style="color: #7f9939;">(Amount)</span></label>
+                                    <input type="text" class="form-control" id="medDosageAmount" placeholder="e.g., 500">
+                                </div>
+                                <div class="col"> <label for="medDosageUnit" class="form-label">Dosage <span style="color: #7f9939;">(Unit)</span></label>
+                                    <select class="form-select" id="medDosageUnit">
+                                        <option value="mg">mg</option>
+                                        <option value="mL">mL</option>
+                                        <option value="mcG">mcG</option>
+                                        <option value="tablet">tablet</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="medReason" class="form-label">Reason for Request</label>
@@ -440,7 +469,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="saveMedBtn"
-                        onclick="alert('Request Submitted - Wait for Processing')">Request Submitted</button>
+                        onclick="alert('Request Submitted - Wait for Processing')">Submit Request</button>
                 </div>
             </div>
         </div>
@@ -459,7 +488,8 @@
         <div class="col-md-4 mb-3">
             <div class="card h-100 border-0 shadow-sm wellness-resource-card">
                 <div class="card-body d-flex align-items-center">
-                    <div class="rounded-circle p-3 me-3" style="background-color: #F3F9D2; color: #3D0B37;">
+                    <div class="rounded-circle p-2 ps-3 pe-3 me-3"
+                        style="background-color: #F3F9D2; border: 3px solid #7f9939; color: #7f9939;">
                         <i class="bi bi-heart-pulse-fill fs-4"></i>
                     </div>
                     <div>
@@ -475,7 +505,8 @@
         <div class="col-md-4 mb-3">
             <div class="card h-100 border-0 shadow-sm wellness-resource-card">
                 <div class="card-body d-flex align-items-center">
-                    <div class="rounded-circle p-3 me-3" style="background-color: #F3F9D2; color: #3D0B37;">
+                    <div class="rounded-circle p-2 ps-3 pe-3 me-3"
+                        style="background-color: #F3F9D2; border: 3px solid #7f9939; color: #7f9939;">
                         <i class="bi bi-calendar-check-fill fs-4"></i>
                     </div>
                     <div>
@@ -491,7 +522,8 @@
         <div class="col-md-4 mb-3">
             <div class="card h-100 border-0 shadow-sm wellness-resource-card">
                 <div class="card-body d-flex align-items-center">
-                    <div class="rounded-circle p-3 me-3" style="background-color: #F3F9D2; color: #3D0B37;">
+                    <div class="rounded-circle p-2 ps-3 pe-3 me-3"
+                        style="background-color: #F3F9D2; border: 3px solid #7f9939; color: #7f9939;">
                         <i class="bi bi-telephone-fill fs-4"></i>
                     </div>
                     <div>
@@ -506,16 +538,17 @@
     </div>
     <!--End of Wellness Resources-->
 
-    <footer class="site-footer mt-4 py-3">
-        <div class="container text-center">
+    <footer class="site-footer footer-border mt-4 py-3 ps-0 pe-0 ms-0 me-0">
+        <div class="container-fluid text-center">
             <div class="row">
                 <div class="col-md-6 mb-2 mb-md-0">
-                    <small class="text-white">&copy; 2025 Winona College Care</small>
+                    <small class="text-white bg-dark bg-opacity-50 p-2 rounded-3">&copy; 2025 Winona College
+                        Care</small>
                 </div>
-                <div class="col-md-6">
-                    <small class="text-white">Support: <a href="tel:18001234567"
-                            class="text-decoration-none">1-507-538-1234</a> · <a href="#"
-                            class="text-decoration-none">Privacy</a></small>
+                <div class="col-md-6 mt-md-0 mt-2">
+                    <small class="text-white bg-dark bg-opacity-50 p-2 rounded-3">Support: <a href="tel:18001234567"
+                            class="text-decoration-none text-warning">1-507-538-1234</a> · <a href="#"
+                            class="text-decoration-none text-warning">Privacy</a></small>
                 </div>
             </div>
         </div>
